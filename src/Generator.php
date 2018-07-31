@@ -48,7 +48,7 @@ class Generator
     public function generate()
     {
         $this->getRouteMethods();
-        // $this->formatter->generate();
+        $this->formatter->generate();
     }
 
     /**
