@@ -1,0 +1,26 @@
+{
+    "name": "vigneshc91/laravel-test-generator",
+    "description": "Laravel package for generating unit test automatically",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vignesh C",
+            "email": "vignesh.jag@gmail.com"
+        }
+    ],
+    "require": {
+        "fzaninotto/faker": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vigneshc91\\LaravelTestGenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vigneshc91\\LaravelTestGenerator\\TestGeneratorServiceProvider"
+            ]
+        }
+    }
+}
