@@ -123,7 +123,7 @@ class TestCaseGenerator
                 $value = $this->faker->date($format);
                 break;
         }
-
+        
         return $value;
     }
 
@@ -147,7 +147,7 @@ class TestCaseGenerator
      */
     protected function isCompanyName($rules, $param)
     {
-        return strpos('company', $param) >= 0 && in_array('string', $rules);
+        return strpos('company', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -159,7 +159,7 @@ class TestCaseGenerator
      */
     protected function isAddress($rules, $param)
     {
-        return strpos('address', $param) >= 0 && in_array('string', $rules);
+        return strpos('address', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -171,7 +171,7 @@ class TestCaseGenerator
      */
     protected function isName($rules, $param)
     {
-        return strpos('name', $param) >= 0 && in_array('string', $rules);
+        return strpos('name', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -183,7 +183,7 @@ class TestCaseGenerator
      */
     protected function isStreetName($rules, $param)
     {
-        return strpos('street', $param) >= 0 && in_array('string', $rules);
+        return strpos('street', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -195,7 +195,7 @@ class TestCaseGenerator
      */
     protected function isStreetAddress($rules, $param)
     {
-        return strpos('street_address', $param) >= 0 && in_array('string', $rules);
+        return strpos('street_address', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -207,7 +207,7 @@ class TestCaseGenerator
      */
     protected function isCity($rules, $param)
     {
-        return strpos('city', $param) >= 0 && in_array('string', $rules);
+        return strpos('city', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -219,7 +219,7 @@ class TestCaseGenerator
      */
     protected function isState($rules, $param)
     {
-        return strpos('state', $param) >= 0 && in_array('string', $rules);
+        return strpos('state', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -231,7 +231,7 @@ class TestCaseGenerator
      */
     protected function isCountry($rules, $param)
     {
-        return strpos('country', $param) >= 0 && in_array('string', $rules);
+        return strpos('country', $param) !== false && in_array('string', $rules);
     }
 
     /**
@@ -243,7 +243,7 @@ class TestCaseGenerator
      */
     protected function isZip($rules, $param)
     {
-        return (strpos('zip', $param) >= 0 || strpos('pin', $param) > 0 ) && in_array('string', $rules);
+        return (strpos('zip', $param) !== false || strpos('pin', $param) !== false ) && in_array('string', $rules);
     }
 
     /**
@@ -254,7 +254,7 @@ class TestCaseGenerator
      */
     protected function isLatitude($param)
     {
-        return strpos('latitude', $param) >= 0;
+        return strpos('latitude', $param) !== false;
     }
 
     /**
@@ -265,7 +265,7 @@ class TestCaseGenerator
      */
     protected function isLongitude($param)
     {
-        return strpos('longitude', $param) > 0;
+        return strpos('longitude', $param) !== false;
     }
 
     /**
@@ -276,7 +276,7 @@ class TestCaseGenerator
      */
     protected function isPhone($param)
     {
-        return strpos('phone', $param) > 0 || strpos('mobile', $param);
+        return strpos('phone', $param) !== false || strpos('mobile', $param) !== false;
     }
 
     /**
