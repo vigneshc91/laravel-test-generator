@@ -14,12 +14,21 @@ class TestCaseGenerator
 
     protected $rules;
     
+    /**
+     * Initiates the global parameters
+     */
     public function __construct()
     {
         $this->faker = Faker\Factory::create();
         $this->cases = [];
     }
 
+    /**
+     * Initialize the params and rules and generates the test cases
+     *
+     * @param array $rules
+     * @return array
+     */
     public function generate($rules)
     {
         $this->params = array_keys($rules);
