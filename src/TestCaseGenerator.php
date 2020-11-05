@@ -58,7 +58,7 @@ class TestCaseGenerator
         $case = [];
         $value = '';
         foreach ($this->params as $key => $val) {
-            $case[$val] = $this->getValue($val, $this->rules[$key]);
+            $case[$val] = $this->getValue(is_string($val) ? $val : strval($val), $this->rules[$key]);
         }
 
         $this->cases['success'] = $case;
