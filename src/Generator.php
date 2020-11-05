@@ -158,7 +158,7 @@ class Generator
         $parameters = $reflector->getParameters();
         
         foreach ($parameters as $parameter) {
-            $class = (string) $parameter->getType();
+            $class = optional($parameter->getType())->getName();
             
             if (is_subclass_of($class, FormRequest::class)) {
                 return (new $class)->rules();
