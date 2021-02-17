@@ -8,6 +8,8 @@ The package can easily be installed by running `composer require vigneshc91/lara
 
 If you are running a version of Laravel < 5.5 also make sure you add `Vigneshc91\LaravelTestGenerator\TestGeneratorServiceProvider::class` to the `providers` array in `config/app.php`.
 
+If you are running a version of Laravel > 5.6, run `composer require laravel/helpers` in your project's root folder.
+
 This will register the artisan command that will be available to you.
 
 
