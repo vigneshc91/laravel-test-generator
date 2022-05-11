@@ -2,6 +2,9 @@
 
 namespace Vigneshc91\LaravelTestGenerator;
 
+use Illuminate\Support\Arr;
+use Illuminate\Http\Response;
+
 class Formatter
 {
     protected $cases;
@@ -109,7 +112,7 @@ class Formatter
 
             $body .= ');';
             # Assert response
-            $body .= PHP_EOL . PHP_EOL . "\t\t" . '$response->assertStatus(' . ($index == 'failure' ? '400' : '200') . ');' . PHP_EOL;
+            $body .= PHP_EOL . PHP_EOL . "\t\t" . '$response->assertStatus(' . ($index == 'failure' ? Response::HTTP_BAD_REQUEST : Response::HTTP_OK) . ');' . PHP_EOL;
             
             # Add the function to the global array
             $this->cases[$controllerName]['function'][] = [
@@ -133,7 +136,7 @@ class Formatter
             $lines = file($this->file, FILE_IGNORE_NEW_LINES);
             $lines[2] = $this->namespace;
             $lines[8] = $this->getClassName($key, $lines[8]);
-            $functions = implode(PHP_EOL, array_pluck($value['function'], 'code'));
+            $functions = implode(PHP_EOL, Arr::pluck($value['function'], 'code'));
             $content = array_merge(array_slice($lines, 0, 10) , [$functions] , array_slice($lines, 11));
             
             $this->writeToFile($key . 'Test', $content);
