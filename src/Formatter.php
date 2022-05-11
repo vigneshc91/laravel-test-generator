@@ -3,6 +3,7 @@
 namespace Vigneshc91\LaravelTestGenerator;
 
 use Illuminate\Support\Arr;
+use Illuminate\Http\Response;
 
 class Formatter
 {
@@ -111,7 +112,7 @@ class Formatter
 
             $body .= ');';
             # Assert response
-            $body .= PHP_EOL . PHP_EOL . "\t\t" . '$response->assertStatus(' . ($index == 'failure' ? '400' : '200') . ');' . PHP_EOL;
+            $body .= PHP_EOL . PHP_EOL . "\t\t" . '$response->assertStatus(' . ($index == 'failure' ? Respone::HTTP_BAD_REQUEST : Response::HTTP_OK) . ');' . PHP_EOL;
             
             # Add the function to the global array
             $this->cases[$controllerName]['function'][] = [
