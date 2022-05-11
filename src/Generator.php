@@ -135,7 +135,7 @@ class Generator
     {
         $uri = $route->uri();
 
-        if (!starts_with($uri, '/')) {
+        if (!str($uri)->startsWith('/')) {
             $uri = '/' . $uri;
         }
 
